@@ -1,0 +1,33 @@
+// Responsive breakpoints
+
+@mixin breakpoint ($value, $min-value: null) {
+
+  @if $value == 'phone' {
+    @media only screen and (max-width: 320px) { @content; }
+  }
+
+  @else if $value == 'to-tablet' {
+    @media only screen and (max-width: 1199px) { @content }
+  }
+
+  @else if $value == 'tablet' {
+    @media only screen and (min-width: 768px) and (max-width: 1199px) { @content }
+  }
+
+  @else if $value == 'from-tablet' {
+    @media only screen and (min-width: 769px) { @content }
+  }
+
+  @else if $value == 'desktop' {
+    @media only screen and (min-width: 1200px) { @content }
+  }
+
+  @else if $min-value != null {
+    @media only screen and (min-width: $min-value) and (max-width: $value){ @content }
+  }
+
+  @else {
+    @media only screen and (max-width: $value) { @content; }
+  }
+}
+

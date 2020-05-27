@@ -3,6 +3,10 @@
 @import 'helpers/mixins';
 @import 'helpers/functions';
 
+// base
+@import 'base/normalize';
+@import 'base/global';
+
 // components
 @import 'components';
 
