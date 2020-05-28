@@ -31,3 +31,33 @@
   }
 }
 
+// layout
+
+@mixin flex ($value: null) {
+  display: flex;
+
+  @if $value == 'center' {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @else if $value == null {
+  }
+}
+
+// typography
+
+@mixin h5 ($value) {
+
+  @if $value == 'mobile' {
+    font-size: 1rem;;
+    line-height: 1.25rem;
+  }
+
+  @else if $value == 'desktop' {
+    font-size: 1rem;;
+    line-height: 1.25rem;
+  }
+
+  color: $font-color-light;
+}

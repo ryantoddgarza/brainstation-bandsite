@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+* {
+  font-family: Roboto;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -337,26 +345,120 @@ template {
   display: none;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html,
 body {
   height: 100%;
   width: 100%;
 }
 
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .container {
-  margin-left: 16px;
-  margin-right: 16px;
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
 }
 @media only screen and (min-width: 768px) and (max-width: 1199px) {
   .container {
-    margin-left: 24px;
-    margin-right: 24px;
+    padding: 0 24px;
   }
 }
 @media only screen and (min-width: 1200px) {
   .container {
-    margin-left: 180px;
-    margin-right: 180px;
+    padding: 0 180px;
+  }
+}
+
+.navbar {
+  height: 80px;
+  background: #323232;
+}
+.navbar__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+@media only screen and (min-width: 769px) {
+  .navbar__content {
+    flex-direction: row;
+  }
+}
+.navbar__logo {
+  display: flex;
+  flex-grow: 1;
+}
+.navbar__list {
+  display: flex;
+  flex-grow: 1;
+  width: 100vw;
+}
+@media only screen and (min-width: 769px) {
+  .navbar__list {
+    height: 100%;
+  }
+}
+.navbar__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #afafaf;
+}
+@media only screen and (min-width: 769px) {
+  .navbar__item {
+    max-width: 80px;
+    margin-left: 56px;
+  }
+}
+.navbar__item--active {
+  border-bottom: 4px solid #ffffff;
+  color: #ffffff;
+}
+.navbar__item--active > * {
+  transform: translateY(2px);
+}
+.navbar__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.divider {
+  max-width: 288px;
+  height: 1px;
+  margin: 20px auto;
+  background: #e1e1e1;
+}
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .divider {
+    max-width: 720px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .divider {
+    max-width: 1080px;
   }
 }
 

@@ -1,0 +1,14 @@
+.divider {
+  max-width: 288px;
+  height: 1px;
+  margin: 20px auto;
+  background: $neutral-90;
+
+  @include breakpoint (tablet) {
+    max-width: 720px;
+  }
+
+  @include breakpoint (desktop) {
+    max-width: 1080px;
+  }
+}

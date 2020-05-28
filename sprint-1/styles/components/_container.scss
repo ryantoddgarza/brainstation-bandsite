@@ -1,12 +1,11 @@
 .container {
-  margin-left: 16px;
-  margin-right: 16px;
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
   @include breakpoint (tablet) {
-    margin-left: 24px;
-    margin-right: 24px;
+    padding: 0 24px;
   }
   @include breakpoint (desktop) {
-    margin-left: 180px;
-    margin-right: 180px;
+    padding: 0 180px;
   }
 }
