@@ -16,6 +16,11 @@
   &__logo {
     display: flex;
     flex-grow: 1;
+
+    & img {
+      width: 120px;
+      height: 24px;
+    }
   }
 
   &__list {

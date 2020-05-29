@@ -47,17 +47,46 @@
 
 // typography
 
+@mixin subheader ($value) {
+
+  @if $value == 'mobile' {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  @else if $value == 'desktop' {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  font-weight: bold;
+}
+
+@mixin paragraph ($value) {
+
+  @if $value == 'mobile' {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  @else if $value == 'desktop' {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
 @mixin h5 ($value) {
 
   @if $value == 'mobile' {
-    font-size: 1rem;;
+    font-size: 1rem;
     line-height: 1.25rem;
   }
 
   @else if $value == 'desktop' {
-    font-size: 1rem;;
+    font-size: 1rem;
     line-height: 1.25rem;
   }
 
   color: $font-color-light;
 }
+
