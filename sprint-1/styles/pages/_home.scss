@@ -1,0 +1,15 @@
+.about {
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    @include h1 ('phone');
+
+    @include breakpoint ('desktop') {
+      @include h1 ('desktop');
+    }
+  }
+}

@@ -2,7 +2,11 @@
 
 @mixin breakpoint ($value, $min-value: null) {
 
-  @if $value == 'phone' {
+  @if $value == 'phone-small' {
+    @media only screen and (max-width: 320px) { @content; }
+  }
+
+  @else if $value == 'phone' {
     @media only screen and (max-width: 320px) { @content; }
   }
 
@@ -15,7 +19,7 @@
   }
 
   @else if $value == 'from-tablet' {
-    @media only screen and (min-width: 769px) { @content }
+    @media only screen and (min-width: 768px) { @content }
   }
 
   @else if $value == 'desktop' {
@@ -47,6 +51,36 @@
 
 // typography
 
+@mixin h1 ($value) {
+
+  @if $value == 'phone' {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 24px;
+  }
+
+  @else if $value == 'desktop' {
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 48px;
+  }
+}
+
+@mixin h5 ($value) {
+
+  @if $value == 'mobile' {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  @else if $value == 'desktop' {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  color: $font-color-light;
+}
+
 @mixin subheader ($value) {
 
   @if $value == 'mobile' {
@@ -73,20 +107,5 @@
     font-size: 14px;
     line-height: 22px;
   }
-}
-
-@mixin h5 ($value) {
-
-  @if $value == 'mobile' {
-    font-size: 1rem;
-    line-height: 1.25rem;
-  }
-
-  @else if $value == 'desktop' {
-    font-size: 1rem;
-    line-height: 1.25rem;
-  }
-
-  color: $font-color-light;
 }
 
