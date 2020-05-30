@@ -8,8 +8,31 @@
   &__header {
     @include h1 ('phone');
 
-    @include breakpoint ('desktop') {
+    @include breakpoint ('from-tablet') {
       @include h1 ('desktop');
     }
   }
+
+  &__image-wrapper {
+    @include row;
+  }
+  &__image-inner {
+    @include col;
+
+    @include breakpoint ('desktop') {
+      width: 83.3333%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  @include row;
+}
+.col {
+  @include col;
+  width: 100%;
+  height: 50px;
+  background: cyan;
 }

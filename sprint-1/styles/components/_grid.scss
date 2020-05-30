@@ -1,12 +1,13 @@
 $_gutter-width: 24px;
-$_gutter-compensation: $_gutter-width * -1;
+$_gutter-width-half: $_gutter-width * 0.5;
+$_gutter-compensation: $_gutter-width-half * -1;
 
 @mixin row  {
-  margin-left: $_gutter-width;
-  margin-right: $_gutter-width;
+  margin-left: $_gutter-compensation;
+  margin-right: $_gutter-compensation;
 }
 
 @mixin col {
-  margin-left: $_gutter-compensation;
-  margin-right: $_gutter-compensation;
+  margin-left: $_gutter-width-half;
+  margin-right: $_gutter-width-half;
 }
