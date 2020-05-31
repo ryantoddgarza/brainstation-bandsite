@@ -478,24 +478,38 @@ img {
     line-height: 22px;
   }
 }
-.footer__content {
-  display: flex;
-  flex-direction: column;
-}
 .footer__top, .footer__middle, .footer__bottom {
-  display: flex;
-  flex-direction: column;
   display: flex;
   flex-wrap: wrap;
   margin-left: -12px;
   margin-right: -12px;
+  flex-direction: column;
 }
-.footer__header {
+@media only screen and (min-width: 768px) {
+  .footer__top, .footer__middle, .footer__bottom {
+    flex-direction: row;
+  }
+}
+.footer__top > *, .footer__middle > *, .footer__bottom > * {
   padding-left: 12px;
   padding-right: 12px;
-  font-size: 40px;
-  line-height: 1;
+}
+.footer__top {
+  margin-bottom: 32px;
+}
+.footer__middle {
+  margin-bottom: 16px;
+}
+.footer__header {
+  font-size: 32px;
+  line-height: 40px;
   font-weight: 900;
+  margin-bottom: 24px;
+}
+@media only screen and (min-width: 768px) {
+  .footer__header {
+    width: 25%;
+  }
 }
 .footer__mid-subheader {
   font-size: 14px;
@@ -507,19 +521,10 @@ img {
     line-height: 22px;
   }
 }
-.footer__middle {
-  margin-bottom: 16px;
-}
-.footer__middle p {
-  margin-top: 0;
-  margin-bottom: 24px;
-}
 .footer__social-block {
   display: flex;
   justify-content: space-between;
-  width: 50%;
-  padding-left: 12px;
-  padding-right: 12px;
+  width: 160px;
 }
 .footer__logo {
   display: none;
@@ -529,17 +534,17 @@ img {
     display: block;
     width: 120px;
     height: 24px;
+    margin: 0 12px;
   }
 }
-.footer__mid-col {
-  padding-left: 12px;
-  padding-right: 12px;
+@media only screen and (min-width: 768px) {
+  .footer__mid-col {
+    width: 25%;
+  }
 }
 .footer__copyright {
   display: flex;
   flex-direction: column;
-  padding-left: 12px;
-  padding-right: 12px;
   text-transform: capitalize;
 }
 
@@ -639,7 +644,7 @@ img {
 .about__quote {
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 40px;
   margin: 0 0 1rem;
 }
 .about__quote > p {
@@ -663,7 +668,7 @@ img {
   margin: 24px 0;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 40px;
 }
 .about__type {
   display: flex;

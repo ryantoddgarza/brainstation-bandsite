@@ -1,6 +1,5 @@
 .footer {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  @include main-section-padding ('desktop');
   @include paragraph ('mobile');
   color: $white;
   background: $theme-dark;
@@ -10,23 +9,39 @@
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
   }
 
   &__top,
   &__middle,
   &__bottom {
-    display: flex;
-    flex-direction: column;
     @include row;
+    flex-direction: column;
+
+    @include breakpoint ('from-tablet') {
+      flex-direction: row;
+    }
+    & > * {
+      @include col;
+    }
+  }
+
+  &__top {
+    margin-bottom: 32px;
+  }
+
+  &__middle {
+    margin-bottom: 16px;
   }
 
   &__header {
-    @include col;
-  font-size: 40px;
-  line-height: 1;
+    font-size: 32px;
+    line-height: 40px;
     font-weight: 900;
+    margin-bottom: 24px;
+
+    @include breakpoint ('from-tablet') {
+      width: 25%;
+    }
   }
 
   &__mid-subheader {
@@ -37,24 +52,10 @@
     }
   }
 
-  &__middle {
-    margin-bottom: 16px;
-
-    & p {
-      margin-top: 0;
-      margin-bottom: 24px;
-    }
-  }
-
-
   &__social-block {
     display: flex;
     justify-content: space-between;
-    width: 50%;
-    @include col;
-  }
-
-  &__social-icon {
+    width: 160px;
   }
 
   &__logo {
@@ -64,17 +65,21 @@
       display: block;
       width: 120px;
       height: 24px;
+      margin: 0 12px;
     }
   }
 
   &__mid-col {
-    @include col;
+
+    @include breakpoint ('from-tablet') {
+      width: 25%;
+    }
   }
 
   &__copyright {
     display: flex;
     flex-direction: column;
-    @include col;
+    // @include col;
     text-transform: capitalize;
   }
 }
