@@ -13,25 +13,14 @@
   &__responsive-wrapper {
 
     @include breakpoint ('desktop') {
-      width: 83.3333%;
+      @include col (83.3333%);
       margin: 0 auto;
-    }
-  }
-
-  &__header {
-    @include h1 ('phone');
-
-    @include breakpoint ('from-tablet') {
-      @include h1 ('desktop');
     }
   }
 
   &__image-wrapper {
     @include row;
     margin-bottom: 24px;
-  }
-  &__image {
-    @include col;
   }
 
   &__quote {
@@ -77,12 +66,36 @@
       }
     }
     &--col {
-      @include col;
-
       @include breakpoint ('from-tablet') {
-        width: 50%;
+        @include col (50%);
       }
     }
   }
 }
 
+.gallery {
+  @include main-section-padding ('phone');
+
+  @include breakpoint ('from-tablet') {
+    @include main-section-padding ('desktop');
+    padding-bottom: 16px;
+  }
+
+  &__wrapper {
+    @include row;
+    flex-direction: column;
+
+    @include breakpoint ('from-tablet') {
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    margin-bottom: 16px;
+
+    @include breakpoint ('from-tablet') {
+      @include col (33.3333%);
+      margin-bottom: 24px;
+    }
+  }
+}

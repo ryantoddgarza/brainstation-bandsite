@@ -1,4 +1,4 @@
-// Responsive breakpoints
+// responsive breakpoints
 
 @mixin breakpoint ($value, $min-value: null) {
 
@@ -36,18 +36,6 @@
 }
 
 // layout
-
-@mixin flex ($value: null) {
-  display: flex;
-
-  @if $value == 'center' {
-    justify-content: center;
-    align-items: center;
-  }
-
-  @else if $value == null {
-  }
-}
 
 @mixin main-section-padding ($value) {
 
@@ -109,7 +97,7 @@
 
 @mixin h5 ($value) {
 
-  @if $value == 'mobile' {
+  @if $value == 'phone' {
     font-size: 1rem;
     line-height: 1.25rem;
   }
@@ -118,8 +106,6 @@
     font-size: 1rem;
     line-height: 1.25rem;
   }
-
-  color: $font-color-light;
 }
 
 @mixin paragraph ($value) {

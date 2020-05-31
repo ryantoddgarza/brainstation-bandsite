@@ -29,3 +29,15 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.app{
+
+  &__section-header {
+    @include h1 ('phone');
+
+    @include breakpoint ('from-tablet') {
+      @include h1 ('desktop');
+    }
+  }
+
+}

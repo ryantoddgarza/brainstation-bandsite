@@ -1,13 +1,22 @@
-$_gutter-width: 24px;
+$_gutter-x: 24px;
+$_gutter-y: 24px;
 
-@mixin row  ($gutter: $_gutter-width) {
+@mixin row  ($gutter-x: $_gutter-x, $gutter-y: null) {
   display: flex;
   flex-wrap: wrap;
-  margin-left: $gutter / -2;
-  margin-right: $gutter /-2;
+  margin-left: $gutter-x / -2;
+  margin-right: $gutter-x /-2;
+
+  @if $gutter-y != null {
+    margin-bottom: $gutter-y;
+  }
+
+  & > * {
+    padding-left: $gutter-x / 2;
+    padding-right: $gutter-x / 2;
+  }
 }
 
-@mixin col ($gutter: $_gutter-width) {
-  padding-left: $gutter / 2;
-  padding-right: $gutter / 2;
+@mixin col ($width: auto) {
+  width: $width;
 }

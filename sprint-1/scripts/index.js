@@ -2,5 +2,5 @@
 (function copyrightDate() {
   let element = document.querySelector('#copyrightDate');
   let year = new Date().getFullYear();
-  element.innerText = year
+  element.innerText = year + '\xa0';
 })();

@@ -8,7 +8,7 @@
     align-items: center;
     height: 100%;
 
-    @include breakpoint (from-tablet) {
+    @include breakpoint ('from-tablet') {
       flex-direction: row;
     }
   }
@@ -29,17 +29,20 @@
     flex-grow: 1;
     width: 100vw;
     
-    @include breakpoint (from-tablet) {
+    @include breakpoint ('from-tablet') {
       height: 100%;
     }
   }
 
   &__item {
-    @include flex (center);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-grow: 1;
-    @include h5 (mobile);
+    @include h5 ('phone');
+    color: $font-color-light;
 
-    @include breakpoint (from-tablet) {
+    @include breakpoint ('from-tablet') {
       max-width: 80px;
       margin-left: 56px;
     }
