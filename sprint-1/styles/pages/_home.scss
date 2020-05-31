@@ -1,8 +1,21 @@
 .about {
+  @include main-section-padding ('phone');
+
+  @include breakpoint ('from-tablet') {
+    @include main-section-padding ('desktop');
+  }
 
   &__content {
     display: flex;
     flex-direction: column;
+  }
+
+  &__responsive-wrapper {
+
+    @include breakpoint ('desktop') {
+      width: 83.3333%;
+      margin: 0 auto;
+    }
   }
 
   &__header {
@@ -15,24 +28,61 @@
 
   &__image-wrapper {
     @include row;
+    margin-bottom: 24px;
   }
-  &__image-inner {
+  &__image {
     @include col;
+  }
 
-    @include breakpoint ('desktop') {
-      width: 83.3333%;
-      margin: 0 auto;
+  &__quote {
+    @include h2 ('phone');
+    margin: 0 0 1rem;
+    
+    & > p {
+      margin-bottom: 2rem;
+      &::before {
+            content: open-quote;
+      }
+      &::after {
+            content: close-quote;
+      }
+    }
+
+    & > footer {
+      @include h3 ('phone');
+      font-style: normal;
+      &::before {
+        content: "-"
+      }
+    }
+  }
+
+  &__sub {
+    margin: 24px 0;
+    @include h2 ('phone');
+  }
+
+  &__type {
+    @include row;
+    flex-direction: column;
+
+    @include breakpoint ('from-tablet') {
+      flex-direction: row;
+    }
+    & p {
+      margin-bottom: 1rem;
+
+      @include breakpoint ('from-tablet') {
+        margin-bottom: 0;
+      }
+    }
+    &--col {
+      @include col;
+
+      @include breakpoint ('from-tablet') {
+        width: 50%;
+      }
     }
   }
 }
 
-.row {
-  display: flex;
-  @include row;
-}
-.col {
-  @include col;
-  width: 100%;
-  height: 50px;
-  background: cyan;
-}

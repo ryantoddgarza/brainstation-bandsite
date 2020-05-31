@@ -49,6 +49,19 @@
   }
 }
 
+@mixin main-section-padding ($value) {
+
+  @if $value == 'phone' {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  @else if $value == 'desktop' {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
 // typography
 
 @mixin h1 ($value) {
@@ -63,6 +76,34 @@
     font-size: 36px;
     line-height: 44px;
     margin-bottom: 48px;
+  }
+}
+
+@mixin h2 ($value) {
+
+  @if $value == 'phone' {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 2.5rem;
+  }
+
+  @else if $value == 'desktop' {
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 48px;
+  }
+}
+
+@mixin h3 ($value) {
+
+  @if $value == 'phone' {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  @else if $value == 'desktop' {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
@@ -81,24 +122,9 @@
   color: $font-color-light;
 }
 
-@mixin subheader ($value) {
-
-  @if $value == 'mobile' {
-    font-size: 14px;
-    line-height: 22px;
-  }
-
-  @else if $value == 'desktop' {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  font-weight: bold;
-}
-
 @mixin paragraph ($value) {
 
-  @if $value == 'mobile' {
+  @if $value == 'phone' {
     font-size: 13px;
     line-height: 18px;
   }

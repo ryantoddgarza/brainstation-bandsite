@@ -30,10 +30,10 @@
   }
 
   &__mid-subheader {
-    @include subheader ('mobile');
+    @include h3 ('phone');
     
     @include breakpoint ('from-tablet') {
-      @include subheader ('desktop');
+      @include h3 ('phone');
     }
   }
 
