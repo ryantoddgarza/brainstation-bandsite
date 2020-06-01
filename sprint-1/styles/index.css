@@ -1,6 +1,41 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNextLTPro-Regular.otf") format("OpenType");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNextLTPro-It.otf") format("OpenType");
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNextLTPro-Demi.otf") format("OpenType");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNextLTPro-DemiIt.otf") format("OpenType");
+  font-style: italic;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNextLTPro-Bold.otf") format("OpenType");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNextLTPro-BoldIt.otf") format("OpenType");
+  font-style: italic;
+  font-weight: 700;
+}
 * {
-  font-family: Roboto;
+  font-family: "Avenir Next";
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -374,6 +409,10 @@ li {
   margin: 0;
 }
 
+blockquote {
+  margin: 0;
+}
+
 p {
   margin-top: 0;
   margin-bottom: 1.5rem;
@@ -392,6 +431,7 @@ img {
 .app__section-header {
   font-size: 24px;
   line-height: 32px;
+  font-weight: 900;
   margin-bottom: 24px;
 }
 @media only screen and (min-width: 768px) {
@@ -457,14 +497,19 @@ img {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  font-size: 1rem;
-  line-height: 1.25rem;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
   color: #afafaf;
+  transition: color 0.1s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
   .navbar__item {
     max-width: 80px;
     margin-left: 56px;
+  }
+  .navbar__item:hover {
+    color: #fafafa;
   }
 }
 .navbar__item--active {
@@ -510,35 +555,39 @@ img {
 .footer__top {
   margin-bottom: 32px;
 }
+@media only screen and (min-width: 768px) {
+  .footer__top {
+    margin-bottom: 56px;
+  }
+}
 .footer__middle {
   margin-bottom: 16px;
 }
 .footer__header {
   font-size: 32px;
-  line-height: 40px;
+  line-height: 1;
   font-weight: 900;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 @media only screen and (min-width: 768px) {
+  .footer__header {
+    width: 33.3333%;
+    margin-bottom: 0;
+  }
+}
+@media only screen and (min-width: 1200px) {
   .footer__header {
     width: 25%;
   }
 }
 .footer__mid-subheader {
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: bold;
-}
-@media only screen and (min-width: 768px) {
-  .footer__mid-subheader {
-    font-size: 14px;
-    line-height: 22px;
-  }
+  font-weight: 700;
 }
 .footer__social-block {
   display: flex;
-  justify-content: space-between;
-  width: 160px;
+}
+.footer__social-icon {
+  margin-right: 32px;
 }
 .footer__logo {
   display: none;
@@ -551,7 +600,12 @@ img {
     margin-left: auto;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .footer__mid-col {
+    width: 33.3333%;
+  }
+}
+@media only screen and (min-width: 1200px) {
   .footer__mid-col {
     width: 25%;
   }
@@ -602,9 +656,16 @@ img {
 .hero__header {
   font-size: 7.5vw;
   line-height: 10vw;
+  font-weight: 900;
   color: #ffffff;
 }
 @media only screen and (max-width: 320px) {
+  .hero__header {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+@media only screen and (max-width: phone-small) {
   .hero__header {
     font-size: 24px;
     line-height: 32px;
@@ -649,13 +710,25 @@ img {
   padding-right: 12px;
 }
 .about__quote {
-  font-size: 16px;
-  line-height: 24px;
   margin-bottom: 40px;
-  margin: 0 0 1rem;
+}
+@media only screen and (min-width: 768px) {
+  .about__quote {
+    margin-bottom: 56px;
+  }
 }
 .about__quote > p {
-  margin-bottom: 2rem;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 900;
+  margin-bottom: 32px;
+}
+@media only screen and (min-width: 768px) {
+  .about__quote > p {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 40px;
+  }
 }
 .about__quote > p::before {
   content: open-quote;
@@ -666,16 +739,24 @@ img {
 .about__quote > footer {
   font-size: 14px;
   line-height: 22px;
+  font-weight: 700;
   font-style: normal;
 }
 .about__quote > footer::before {
   content: "-";
 }
 .about__sub {
-  margin: 24px 0;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 40px;
+  font-weight: 900;
+  margin-bottom: 24px;
+}
+@media only screen and (min-width: 768px) {
+  .about__sub {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 32px;
+  }
 }
 .about__type {
   display: flex;
@@ -690,11 +771,19 @@ img {
 }
 @media only screen and (min-width: 768px) {
   .about__type {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -20px;
+    margin-right: -20px;
     flex-direction: row;
+  }
+  .about__type > * {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 .about__type p {
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 @media only screen and (min-width: 768px) {
   .about__type p {
@@ -732,6 +821,7 @@ img {
 @media only screen and (min-width: 768px) {
   .gallery__wrapper {
     flex-direction: row;
+    padding-top: 16px;
   }
 }
 .gallery__image {

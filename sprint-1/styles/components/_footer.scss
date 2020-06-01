@@ -1,14 +1,11 @@
 .footer {
   @include main-section-padding ('desktop');
-  @include paragraph ('mobile');
+  @include type ('p', 'mobile');
   color: $white;
   background: $theme-dark;
-  
-  @include breakpoint ('from-tablet') {
-    @include paragraph ('desktop'); 
-  }
 
-  &__content {
+  @include breakpoint ('from-tablet') {
+    @include type ('p', 'desktop');
   }
 
   &__top,
@@ -24,6 +21,10 @@
 
   &__top {
     margin-bottom: 32px;
+
+    @include breakpoint ('from-tablet') {
+      margin-bottom: 56px;
+    }
   }
 
   &__middle {
@@ -32,28 +33,28 @@
 
   &__header {
     font-size: 32px;
-    line-height: 40px;
+    line-height: 1;
     font-weight: 900;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 
     @include breakpoint ('from-tablet') {
+      @include col (33.3333%);
+      margin-bottom: 0;
+    }
+    @include breakpoint ('desktop') {
       @include col (25%);
     }
   }
 
   &__mid-subheader {
-    @include h3 ('phone');
-    font-weight: bold;
-    
-    @include breakpoint ('from-tablet') {
-      @include h3 ('phone');
-    }
+    font-weight: 700;
   }
 
   &__social-block {
     display: flex;
-    justify-content: space-between;
-    width: 160px;
+  }
+  &__social-icon {
+    margin-right: 32px;
   }
 
   &__logo {
@@ -68,7 +69,10 @@
   }
 
   &__mid-col {
-    @include breakpoint ('from-tablet') {
+    @include breakpoint ('tablet') {
+      @include col (33.3333%)
+    }
+    @include breakpoint ('desktop') {
       @include col (25%);
     }
   }

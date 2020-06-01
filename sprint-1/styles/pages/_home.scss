@@ -11,7 +11,6 @@
   }
 
   &__responsive-wrapper {
-
     @include breakpoint ('desktop') {
       @include col (83.3333%);
       margin: 0 auto;
@@ -24,21 +23,28 @@
   }
 
   &__quote {
-    @include h2 ('phone');
-    margin: 0 0 1rem;
-    
+    margin-bottom: 40px;
+
+    @include breakpoint ('from-tablet') {
+      margin-bottom: 56px;
+    }
     & > p {
-      margin-bottom: 2rem;
+      @include type ('h2', 'phone', 900);
+      margin-bottom: 32px;
+
+      @include breakpoint ('from-tablet') {
+        @include type ('h2', 'desktop');
+        margin-bottom: 40px;
+      }
       &::before {
-            content: open-quote;
+        content: open-quote;
       }
       &::after {
-            content: close-quote;
+        content: close-quote;
       }
     }
-
     & > footer {
-      @include h3 ('phone');
+      @include type ('h3', 'phone', 700);
       font-style: normal;
       &::before {
         content: "-"
@@ -47,8 +53,13 @@
   }
 
   &__sub {
-    margin: 24px 0;
-    @include h2 ('phone');
+    @include type ('h2', 'phone', 900);
+    margin-bottom: 24px;
+
+    @include breakpoint ('from-tablet') {
+      @include type ('h2', 'desktop');
+      margin-bottom: 32px;
+    }
   }
 
   &__type {
@@ -56,10 +67,11 @@
     flex-direction: column;
 
     @include breakpoint ('from-tablet') {
+      @include row (40px);
       flex-direction: row;
     }
     & p {
-      margin-bottom: 1rem;
+      margin-bottom: 16px;
 
       @include breakpoint ('from-tablet') {
         margin-bottom: 0;
@@ -87,6 +99,7 @@
 
     @include breakpoint ('from-tablet') {
       flex-direction: row;
+      padding-top: 16px;
     }
   }
 

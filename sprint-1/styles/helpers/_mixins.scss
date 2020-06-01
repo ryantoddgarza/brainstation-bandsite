@@ -6,7 +6,7 @@
     @media only screen and (max-width: 320px) { @content; }
   }
 
-  @else if $value == 'phone' {
+  @if $value == 'phone' {
     @media only screen and (max-width: 320px) { @content; }
   }
 
@@ -52,72 +52,74 @@
 
 // typography
 
-@mixin h1 ($value) {
+@mixin type ($tag, $breakpoint, $weight: null,  $style: null) {
 
-  @if $value == 'phone' {
-    font-size: 24px;
-    line-height: 32px;
-    margin-bottom: 24px;
+  // header 1
+  @if $tag == 'h1' {
+    @if $breakpoint == 'phone' {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    @else if $breakpoint == 'desktop' {
+      font-size: 36px;
+      line-height: 44px;
+    }
   }
 
-  @else if $value == 'desktop' {
-    font-size: 36px;
-    line-height: 44px;
-    margin-bottom: 48px;
-  }
-}
-
-@mixin h2 ($value) {
-
-  @if $value == 'phone' {
-    font-size: 16px;
-    line-height: 24px;
-    margin-bottom: 40px;
+  // header 2
+  @if $tag == 'h2' {
+    @if $breakpoint == 'phone' {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    @else if $breakpoint == 'desktop' {
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
 
-  @else if $value == 'desktop' {
-    font-size: 36px;
-    line-height: 44px;
-    margin-bottom: 48px;
-  }
-}
-
-@mixin h3 ($value) {
-
-  @if $value == 'phone' {
-    font-size: 14px;
-    line-height: 22px;
+  // header 3
+  @if $tag == 'h3' {
+    @if $breakpoint == 'phone' {
+      font-size: 14px;
+      line-height: 22px;
+    }
+    @else if $breakpoint == 'desktop' {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
-  @else if $value == 'desktop' {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-@mixin h5 ($value) {
-
-  @if $value == 'phone' {
-    font-size: 1rem;
-    line-height: 1.25rem;
-  }
-
-  @else if $value == 'desktop' {
-    font-size: 1rem;
-    line-height: 1.25rem;
-  }
-}
-
-@mixin paragraph ($value) {
-
-  @if $value == 'phone' {
-    font-size: 13px;
-    line-height: 18px;
+  // header 5
+  @if $tag == 'h5' {
+    @if $breakpoint == 'phone' {
+      font-size: 12px;
+      line-height: 20px;
+    }
+    @else if $breakpoint == 'desktop' {
+      font-size: 12px;
+      line-height: 20px;
+    }
   }
 
-  @else if $value == 'desktop' {
-    font-size: 14px;
-    line-height: 22px;
+  // paragraph
+  @if $tag ==  'p' {
+    @if $breakpoint == 'phone' {
+      font-size: 13px;
+      line-height: 18px;
+    }
+    @else if $breakpoint == 'desktop' {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  // optional properties
+  @if $weight != null {
+    font-weight: $weight;
+  }
+  @if $style != null {
+    font-style: $style;
   }
 }
 

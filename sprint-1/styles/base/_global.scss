@@ -15,6 +15,10 @@ li {
   margin: 0;
 }
 
+blockquote {
+  margin: 0;
+}
+
 p {
   margin-top: 0;
   margin-bottom: 1.5rem;
@@ -30,14 +34,16 @@ img {
   max-width: 100%;
 }
 
-.app{
+.app {
 
   &__section-header {
-    @include h1 ('phone');
+    @include type ('h1', 'phone', 900);
+    margin-bottom: 24px;
 
     @include breakpoint ('from-tablet') {
-      @include h1 ('desktop');
+      @include type ('h1', 'desktop');
+      margin-bottom: 48px;
     }
   }
-
 }
+
