@@ -1,0 +1,114 @@
+.about {
+  @include main-section-padding ('phone');
+
+  @include breakpoint ('from-tablet') {
+    @include main-section-padding ('desktop');
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__responsive-wrapper {
+    @include breakpoint ('desktop') {
+      @include col (83.3333%);
+      margin: 0 auto;
+    }
+  }
+
+  &__image-wrapper {
+    @include row;
+    margin-bottom: 24px;
+  }
+
+  &__quote {
+    margin-bottom: 40px;
+
+    @include breakpoint ('from-tablet') {
+      margin-bottom: 56px;
+    }
+    & > p {
+      @include type ('h2', 'phone', 900);
+      margin-bottom: 32px;
+
+      @include breakpoint ('from-tablet') {
+        @include type ('h2', 'desktop');
+        margin-bottom: 40px;
+      }
+      &::before {
+        content: open-quote;
+      }
+      &::after {
+        content: close-quote;
+      }
+    }
+    & > footer {
+      @include type ('h3', 'phone', 700);
+      font-style: normal;
+      &::before {
+        content: "-"
+      }
+    }
+  }
+
+  &__sub {
+    @include type ('h2', 'phone', 900);
+    margin-bottom: 24px;
+
+    @include breakpoint ('from-tablet') {
+      @include type ('h2', 'desktop');
+      margin-bottom: 32px;
+    }
+  }
+
+  &__type {
+    @include row;
+    flex-direction: column;
+
+    @include breakpoint ('from-tablet') {
+      @include row (40px);
+      flex-direction: row;
+    }
+    & p {
+      margin-bottom: 16px;
+
+      @include breakpoint ('from-tablet') {
+        margin-bottom: 0;
+      }
+    }
+    &--col {
+      @include breakpoint ('from-tablet') {
+        @include col (50%);
+      }
+    }
+  }
+}
+
+.gallery {
+  @include main-section-padding ('phone');
+
+  @include breakpoint ('from-tablet') {
+    @include main-section-padding ('desktop');
+    padding-bottom: 16px;
+  }
+
+  &__wrapper {
+    @include row;
+    flex-direction: column;
+
+    @include breakpoint ('from-tablet') {
+      flex-direction: row;
+      padding-top: 16px;
+    }
+  }
+
+  &__image {
+    margin-bottom: 16px;
+
+    @include breakpoint ('from-tablet') {
+      @include col (33.3333%);
+      margin-bottom: 24px;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+blockquote {
+  margin: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.app {
+
+  &__section-header {
+    @include type ('h1', 'phone', 900);
+    margin-bottom: 24px;
+
+    @include breakpoint ('from-tablet') {
+      @include type ('h1', 'desktop');
+      margin-bottom: 48px;
+    }
+  }
+}
+
