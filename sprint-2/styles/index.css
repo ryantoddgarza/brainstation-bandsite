@@ -497,8 +497,6 @@ img {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  font-size: 12px;
-  line-height: 20px;
   font-weight: 600;
   color: #afafaf;
   transition: color 0.1s ease-in-out;
@@ -832,6 +830,73 @@ img {
     width: 33.3333%;
     margin-bottom: 24px;
   }
+}
+
+.comments {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+@media only screen and (min-width: 768px) {
+  .comments {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+.comments__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment {
+  flex-grow: 1;
+}
+@media only screen and (min-width: 768px) {
+  .comment-list {
+    width: 66.6666%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .comment-list {
+    width: 50%;
+  }
+}
+.comment-wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+.comment__avatar {
+  width: auto;
+  width: 54px;
+}
+.comment__avatar > img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #e1e1e1;
+}
+.comment__body {
+  width: auto;
+  flex: 1;
+}
+.comment__author-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.comment__author {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  line-height: 1;
+}
+.comment__time {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  line-height: 1;
+  color: #afafaf;
 }
 
 /*# sourceMappingURL=index.css.map */

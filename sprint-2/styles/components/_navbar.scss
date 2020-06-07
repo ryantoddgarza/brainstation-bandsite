@@ -39,7 +39,7 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    @include type ('h5', 'phone', 600);
+    @include type ('h5', 'mobile', 600);
     color: $font-color-light;
     transition: color 0.1s ease-in-out;
 

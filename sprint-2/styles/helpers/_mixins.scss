@@ -37,7 +37,7 @@
 
 // layout
 
-@mixin main-section-padding ($value) {
+@mixin main-section-padding ($value, $padding-bottom: null) {
 
   @if $value == 'phone' {
     padding-top: 32px;
@@ -93,11 +93,11 @@
   // header 5
   @if $tag == 'h5' {
     @if $breakpoint == 'phone' {
-      font-size: 12px;
+      font-size: 14px;
       line-height: 20px;
     }
     @else if $breakpoint == 'desktop' {
-      font-size: 12px;
+      font-size: 14px;
       line-height: 20px;
     }
   }
