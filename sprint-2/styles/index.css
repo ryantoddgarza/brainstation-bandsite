@@ -620,20 +620,8 @@ img {
 }
 
 .divider {
-  max-width: 288px;
   height: 1px;
-  margin: 20px auto;
   background: #e1e1e1;
-}
-@media only screen and (min-width: 768px) and (max-width: 1199px) {
-  .divider {
-    max-width: 720px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .divider {
-    max-width: 1080px;
-  }
 }
 
 .hero {
@@ -925,15 +913,15 @@ img {
   border: none;
   border-radius: 4px;
 }
+.comment__submit-button:hover {
+  background: #000000;
+  cursor: pointer;
+}
 @media only screen and (min-width: 768px) {
   .comment__submit-button {
     align-self: flex-end;
     max-width: 160px;
   }
-}
-.comment__submit-button:hover {
-  background: #000000;
-  cursor: pointer;
 }
 .comment-list {
   padding-bottom: 8px;
@@ -1083,6 +1071,125 @@ img {
   .shows__hero-player {
     align-self: flex-end;
   }
+}
+
+.schedule__content {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 1200px) {
+  .schedule__responsive-wrapper {
+    width: 83.3333%;
+    margin: 0 auto;
+  }
+}
+.schedule__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -12px;
+  margin-right: -12px;
+  flex-direction: column;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-size: 13px;
+  line-height: 18px;
+}
+.schedule__row > * {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+@media only screen and (min-width: 768px) {
+  .schedule__row {
+    flex-direction: row;
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+.schedule__row > * {
+  padding-right: 0;
+  line-height: 48px;
+}
+.schedule__date {
+  font-size: 16px;
+  font-weight: 900;
+}
+@media only screen and (min-width: 768px) {
+  .schedule__date {
+    width: 33.3333%;
+  }
+}
+.schedule__date::before {
+  content: "Date";
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #afafaf;
+}
+@media only screen and (min-width: 768px) {
+  .schedule__date::before {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .schedule__venue {
+    width: 16.6666%;
+  }
+}
+.schedule__venue::before {
+  content: "Venue";
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #afafaf;
+}
+@media only screen and (min-width: 768px) {
+  .schedule__venue::before {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .schedule__location {
+    width: 16.6666%;
+  }
+}
+.schedule__location::before {
+  content: "Location";
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #afafaf;
+}
+@media only screen and (min-width: 768px) {
+  .schedule__location::before {
+    display: none;
+  }
+}
+.schedule__button {
+  height: 48px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #323232;
+  border: none;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+.schedule__button:hover {
+  background: #000000;
+  cursor: pointer;
+}
+@media only screen and (min-width: 768px) {
+  .schedule__button {
+    width: 160px;
+    margin: 0 0 0 auto;
+  }
+}
+.schedule__button::before {
+  content: "Buy Tickets";
 }
 
 /*# sourceMappingURL=index.css.map */

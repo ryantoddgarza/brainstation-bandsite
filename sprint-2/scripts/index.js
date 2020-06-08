@@ -1,5 +1,6 @@
 // comments
 // here be dragons!
+//
 
 let commentArray = [
   {
@@ -88,7 +89,6 @@ window.onload = loadComments();
 const writeComment = () => {
   makeComment();
   displayComment(0);
-
   populateComment();
 }
 
@@ -115,12 +115,11 @@ submitButton.addEventListener('click', () => {
   writeComment();
 });
 
-
-
-
 // generate footer copyright year
+//
 (copyrightDate = () => {
   const element = document.querySelector('#copyrightDate');
   const year = new Date().getFullYear();
   element.innerText = year + '\xa0';
 })();
+

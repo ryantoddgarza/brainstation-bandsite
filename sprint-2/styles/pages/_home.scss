@@ -202,23 +202,11 @@
   }
 
   &__submit-button {
-    height: 48px;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: $white;
-    background: $neutral-20;
-    border: none;
-    border-radius: $border-radius-default;
+    @include button;
 
     @include breakpoint ('from-tablet') {
       align-self: flex-end;
       max-width: 160px;
-    }
-
-    &:hover {
-      background: $black;
-      cursor: pointer;
     }
   }
 

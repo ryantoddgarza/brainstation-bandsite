@@ -85,3 +85,85 @@
   }
 }
 
+.schedule {
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__responsive-wrapper {
+    @include breakpoint ('desktop') {
+      @include col (83.3333%);
+      margin: 0 auto;
+    }
+  }
+
+  &__row {
+    @include row;
+    flex-direction: column;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    @include type ('p', 'phone');
+
+    @include breakpoint ('from-tablet') {
+      flex-direction: row;
+      @include type ('p', 'desktop');
+    }
+
+    & > * {
+      padding-right: 0;
+      line-height: 48px;
+    }
+  }
+
+  &__date {
+    font-size: 16px;
+    font-weight: 900;
+
+    @include breakpoint ('from-tablet') {
+      width: 33.3333%;
+    }
+
+    &::before {
+      content: 'Date';
+      @include schedule-labels;
+    }
+  }
+
+  &__venue {
+    @include breakpoint ('from-tablet') {
+      width: 16.6666%;
+    }
+
+    &::before {
+      content: 'Venue';
+      @include schedule-labels;
+    }
+  }
+
+  &__location {
+    @include breakpoint ('from-tablet') {
+      width: 16.6666%;
+    }
+
+    &::before {
+      content: 'Location';
+      @include schedule-labels;
+    }
+  }
+
+  &__button {
+    @include button;
+    margin: 16px 0;
+
+    @include breakpoint ('from-tablet') {
+      width: 160px;
+      margin: 0 0 0 auto;
+    }
+
+    &::before {
+      content: 'Buy Tickets';
+    }
+  }
+}
