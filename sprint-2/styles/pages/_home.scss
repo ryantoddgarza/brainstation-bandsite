@@ -130,12 +130,8 @@
     display: flex;
     flex-direction: column;
   }
-}
 
-.comment {
-  flex-grow: 1;
-
-  &-list {
+  &__responsive-wrapper {
 
     @include breakpoint ('from-tablet') {
       width: 66.6666%;
@@ -144,6 +140,104 @@
 
     @include breakpoint ('desktop') {
       width: 50%;
+    }
+  }
+}
+
+.comment {
+  flex-grow: 1;
+
+  &-submit {
+    display: flex;
+    padding-top: 16px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      width: 100%;
+    }
+
+    & label {
+      @include type ('h5', 'phone');
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $neutral-67;
+      margin-bottom: 8px;
+
+      @include breakpoint ('from-tablet') {
+        @include type ('h5', 'desktop');
+      }
+    }
+
+    & input[type="text"],
+    textarea, {
+      @include type ('p', 'desktop');
+      padding: 16px;
+      background: $neutral-95;
+      margin-bottom: 24px;
+      border: 1px solid $neutral-90;
+      border-radius: $border-radius-default;
+
+      @include breakpoint ('from-tablet') {
+        @include type ('p', 'desktop');
+      }
+
+      &:focus {
+        outline: none;
+        border: 2px solid $neutral-20;
+      }
+    }
+
+    input[type="text"] {
+      height: 48px;
+    }
+
+    & textarea {
+      height: 96px;
+      resize: none;
+    }
+  }
+
+  &__submit-button {
+    height: 48px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $white;
+    background: $neutral-20;
+    border: none;
+    border-radius: $border-radius-default;
+
+    @include breakpoint ('from-tablet') {
+      align-self: flex-end;
+      max-width: 160px;
+    }
+
+    &:hover {
+      background: $black;
+      cursor: pointer;
+    }
+  }
+
+  &-list {
+    padding-bottom: 8px;
+  }
+
+  &__divider {
+    max-width: 288px;
+    height: 1px;
+    margin: 20px auto;
+    background: $neutral-90;
+
+    @include breakpoint (tablet) {
+      max-width: 720px;
+    }
+
+    @include breakpoint (desktop) {
+      max-width: 1080px;
     }
   }
 
@@ -161,6 +255,7 @@
       height: 42px;
       border-radius: 50%;
       background: $neutral-90;
+      object-fit: cover;
     }
   }
 
@@ -177,12 +272,12 @@
   }
 
   &__author {
-    @include type ('h5', 'phone', 600);
+    @include type ('p', 'phone', 600);
     line-height: 1;
   }
 
   &__time {
-    @include type ('h5', 'phone', 600);
+    @include type ('p', 'phone', 600);
     line-height: 1;
     color: $neutral-67;
   }

@@ -37,13 +37,7 @@ img {
 .app {
 
   &__section-header {
-    @include type ('h1', 'phone', 900);
-    margin-bottom: 24px;
-
-    @include breakpoint ('from-tablet') {
-      @include type ('h1', 'desktop');
-      margin-bottom: 48px;
-    }
+    @include app-section-header;
   }
 }
 

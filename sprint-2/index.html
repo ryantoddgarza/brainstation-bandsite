@@ -70,24 +70,32 @@
     </section>
     <section class="comments">
       <div class="container comments__content">
-        <div class="app__section-header">Join the Conversation</div>
-        <div class="comment-list">
-          <div class="comment">
-            <div class="divider"></div>
-            <div class="comment-wrapper">
-              <div class="comment__avatar">
-                <img src="" alt="">
-              </div>
-              <div class="comment__body">
-                <div class="comment__author-wrapper">
-                  <div class="comment__author">a</div>
-                  <div class="comment__time">t</div>
-                </div>
-                <div class="comment__content">c</div>
-              </div>
+        <div class="app__section-header comments__header">Join the Conversation</div>
+        <div class="comments__responsive-wrapper">
+          <div class="comment-submit">
+            <div class="comment__avatar">
+              <img src="assets/images/Mohan-muruge.jpg" alt="user-avatar">
+            </div>
+            <div class="comment__body">
+              <form class="comment__form" action="" id="form">
+                <label for="username">Name</label>
+                <input class="comment__form-name"
+                       type="text"
+                       name="username"
+                       id="commentAuthorName"
+                       placeholder="Enter your name">
+                <label for="comment-content">Comment</label>
+                <textarea id="commentContent"
+                          name="comment-content"
+                          placeholder="Add a new comment"></textarea>
+                <button type="submit"
+                        id="submitBtn"
+                        class="comment__submit-button">Comment</button>
+              </form>
             </div>
           </div>
-        </div>
+          <div id="commentList" class="comment-list">
+          </div>
       </div>
     </section>
   </main>

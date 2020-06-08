@@ -93,7 +93,7 @@
   // header 5
   @if $tag == 'h5' {
     @if $breakpoint == 'phone' {
-      font-size: 14px;
+      font-size: 12px;
       line-height: 20px;
     }
     @else if $breakpoint == 'desktop' {
@@ -120,6 +120,17 @@
   }
   @if $style != null {
     font-style: $style;
+  }
+}
+
+// app
+@mixin app-section-header($margin-bottom: 24px) {
+  @include type ('h1', 'phone', 900);
+  margin-bottom: $margin-bottom;
+
+  @include breakpoint ('from-tablet') {
+    @include type ('h1', 'desktop');
+    margin-bottom: $margin-bottom * 2;
   }
 }
 
