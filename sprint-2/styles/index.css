@@ -980,6 +980,7 @@ img {
   line-height: 1;
   color: #afafaf;
 }
+
 .shows {
   padding-top: 32px;
   padding-bottom: 32px;
@@ -1007,7 +1008,6 @@ img {
 .shows__content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 100%;
   padding-top: 64px;
   padding-bottom: 48px;
@@ -1022,6 +1022,7 @@ img {
   .shows__content {
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
     height: fit-content;
   }
 }
@@ -1076,6 +1077,9 @@ img {
 .schedule__content {
   display: flex;
   flex-direction: column;
+}
+.schedule__responsive-wrapper {
+  width: 100%;
 }
 @media only screen and (min-width: 1200px) {
   .schedule__responsive-wrapper {

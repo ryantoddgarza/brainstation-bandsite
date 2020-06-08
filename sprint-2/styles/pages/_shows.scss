@@ -22,7 +22,6 @@
   &__content {
     display: flex;
     flex-direction: column;
-    align-items: center;
     height: 100%;
     padding-top: 64px;
     padding-bottom: 48px;
@@ -35,6 +34,7 @@
     @include breakpoint ('desktop') {
       flex-direction: row;
       justify-content: space-between;
+      align-items: flex-start;
       height: fit-content;
     }
   }
@@ -93,6 +93,8 @@
   }
 
   &__responsive-wrapper {
+    width: 100%;
+
     @include breakpoint ('desktop') {
       @include col (83.3333%);
       margin: 0 auto;
