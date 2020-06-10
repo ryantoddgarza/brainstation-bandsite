@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BandSite</title>
+  <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar__content container">
+      <a href="/" class="navbar__logo">
+        <img src="/assets/logo/logo-bandsite.svg" alt="logo">
+      </a>
+      <ul class="navbar__list">
+        <li class="navbar__item navbar__item--active">
+          <a class="navbar__link" href="/">Biography</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link" href="/pages/shows.html">Shows</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <section class="hero">
+      <div class="container hero__content">
+        <div class="hero__header">
+          <span>
+            Gaspard Auge &amp;<br>
+            Xavier de Rosnay
+          </span>
+        </div>
+      </div>
+    </section>
+    <section class="about">
+      <div class="container about__content">
+        <div class="app__section-header">About The Musicians</div>
+        <div class="about__responsive-wrapper">
+          <div class="about__image-wrapper">
+            <img class="about__image" src="/assets/images/About.jpg" alt="two performers on stage">
+          </div>
+          <blockquote class="about__quote">
+            <p>We are more comfortable with not fighting what comes naturally. Before we might have thought, ‘We need to be smarter than this’</p>
+            <footer>Xavier de Rosnay</footer>
+          </blockquote>
+          <div class="about__sub">Xavier de Rosnay &amp; Gaspard Augé</div>
+          <div class="about__type">
+            <p class="about__type--col">Xavier De Ronsay and Gaspard Augé had a few mutual friends, who happened to run a record label, seeking tracks for a compilation. With an immediate connection, the pair decided to try their hand at making a song. That’s when they created their breakout single, We Are Your Friends – a feel-good, funk-filled, instant anthem that lost the remix contest, but won the attention of Pedro Winter, director of the newly founded Ed Banger Records, who boasted Daft Punk as former clients. One week later, they were in his office, signing a record deal.</p>
+            <p class="about__type--col">Xavier De Ronsay and Gaspard Augé had a few mutual friends, who happened to run a record label, seeking tracks for a compilation. With an immediate connection, the pair decided to try their hand at making a song. That’s when they created their breakout single, We Are Your Friends – a feel-good, funk-filled, instant anthem that lost the remix contest, but won the attention of Pedro Winter, director of the newly founded Ed Banger Records, who boasted Daft Punk as former clients. One week later, they were in his office, signing a record deal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="gallery">
+      <div class="container gallery__content">
+        <div class="app__section-header">Photo Gallery</div>
+        <div class="gallery__wrapper">
+          <img src="/assets/images/Photo-gallery-1.jpg" alt="lights and crowd at a live concert" class="gallery__image">
+          <img src="/assets/images/Photo-gallery-2.jpg" alt="lights and crowd at a live concert" class="gallery__image">
+          <img src="/assets/images/Photo-gallery-3.jpg" alt="lights and crowd at a live concert" class="gallery__image">
+          <img src="/assets/images/Photo-gallery-4.jpg" alt="lights and crowd at a live concert" class="gallery__image">
+          <img src="/assets/images/Photo-gallery-5.jpg" alt="lights and crowd at a live concert" class="gallery__image">
+          <img src="/assets/images/Photo-gallery-6.jpg" alt=" performer on stage" class="gallery__image">
+          <img src="/assets/images/Photo-gallery-7.jpg" alt="lights and crowd at a live concert" class="gallery__image">
+          <img src="/assets/images/Photo-gallery-8.jpg" alt="hands operating a dj table" class="gallery__image">
+          <img src="/assets/images/Photo-gallery-9.jpg" alt="lights and crowd at a live concert" class="gallery__image">
+        </div>
+      </div>
+    </section>
+    <section class="comments">
+      <div class="container comments__content">
+        <div class="app__section-header comments__header">Join the Conversation</div>
+        <div class="comments__responsive-wrapper">
+          <div class="comment-submit">
+            <div class="comment__avatar">
+              <img src="assets/images/Mohan-muruge.jpg" alt="user-avatar">
+            </div>
+            <div class="comment__body">
+              <form class="comment__form" action="" id="form">
+                <label for="username">Name</label>
+                <input class="comment__form-name"
+                       type="text"
+                       name="username"
+                       id="commentAuthorName"
+                       placeholder="Enter your name">
+                <label for="comment-content">Comment</label>
+                <textarea id="commentContent"
+                          name="comment-content"
+                          placeholder="Add a new comment"></textarea>
+                <button type="submit"
+                        id="submitBtn"
+                        class="comment__submit-button">Comment</button>
+              </form>
+            </div>
+          </div>
+          <div id="commentList" class="comment-list">
+          </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer__content">
+      <div class="footer__top">
+        <div class="footer__header">Get In Touch</div>
+        <div class="footer__social-block">
+          <a href="https://instagram.com">
+            <img class="footer__social-icon" src="/assets/icons/SVG/Icon-instagram.svg" alt="instagram icon">
+          </a>
+          <a href="https://facebook.com">
+            <img class="footer__social-icon" src="/assets/icons/SVG/Icon-facebook.svg" alt="facebook icon">
+          </a>
+          <a href="https://twitter.com">
+            <img class="footer__social-icon" src="/assets/icons/SVG/Icon-twitter.svg" alt="twitter icon">
+          </a>
+        </div>
+        <div class="footer__logo">
+          <a href="/">
+            <img src="/assets/logo/logo-bandsite.svg" alt="logo" class="footer__logo">
+          </a>
+        </div>
+      </div>
+      <div class="footer__middle">
+        <div class="footer__mid-col">
+          <p class="footer__mid-subheader">
+            Richard Rovner <br>
+            The Bees Knees Management
+          </p>
+          <p>
+            460 King Street West <br>
+            Toronto, Ontario M5V 1L7
+          </p>
+          <a href="mailto:">
+            <p>info@thebeesknees.com</p>
+          </a>
+        </div>
+        <div class="footer__mid-col">
+          <p class="footer__mid-subheader">
+            Marsha Vlasic <br>
+            Artist Group International
+          </p>
+          <p>
+            Booking Agent for <br>
+            US / South America / Japan
+          </p>
+          <a href="mailto:">
+            <p>marsha.vlasic@artistgrp.com</p>
+          </a>
+        </div>
+        <div class="footer__mid-col">
+          <p class="footer__mid-subheader">
+            Russel Warby <br>
+            William Morrir Entertainment
+          </p>
+          <p>
+            Booking Agent for <br>
+            UK / EU / AU
+          </p>
+          <a href="mailto:">
+            <p>RLW@wmeentertainment.com</p>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copyright">
+          <span class="footer__copyright--line-one">
+            Copyright The Bees Knees &copy; <span id="copyrightDate"></span>
+          </span>
+          <span class="footer__copyright--line-two">
+            All rights reserved
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="/scripts/index.js"></script>
+</body>
+</html>
+

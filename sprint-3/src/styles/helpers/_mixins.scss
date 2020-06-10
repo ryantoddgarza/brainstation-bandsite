@@ -1,0 +1,165 @@
+// responsive breakpoints
+
+@mixin breakpoint ($value, $min-value: null) {
+
+  @if $value == 'phone-small' {
+    @media only screen and (max-width: 320px) { @content; }
+  }
+
+  @if $value == 'phone' {
+    @media only screen and (max-width: 320px) { @content; }
+  }
+
+  @else if $value == 'to-tablet' {
+    @media only screen and (max-width: 1199px) { @content }
+  }
+
+  @else if $value == 'tablet' {
+    @media only screen and (min-width: 768px) and (max-width: 1199px) { @content }
+  }
+
+  @else if $value == 'from-tablet' {
+    @media only screen and (min-width: 768px) { @content }
+  }
+
+  @else if $value == 'desktop' {
+    @media only screen and (min-width: 1200px) { @content }
+  }
+
+  @else if $min-value != null {
+    @media only screen and (min-width: $min-value) and (max-width: $value){ @content }
+  }
+
+  @else {
+    @media only screen and (max-width: $value) { @content; }
+  }
+}
+
+// layout
+
+@mixin main-section-padding ($value, $padding-bottom: null) {
+
+  @if $value == 'phone' {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  @else if $value == 'desktop' {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+// typography
+
+@mixin type ($tag, $breakpoint, $weight: null,  $style: null) {
+
+  // header 1
+  @if $tag == 'h1' {
+    @if $breakpoint == 'phone' {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    @else if $breakpoint == 'desktop' {
+      font-size: 36px;
+      line-height: 44px;
+    }
+  }
+
+  // header 2
+  @if $tag == 'h2' {
+    @if $breakpoint == 'phone' {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    @else if $breakpoint == 'desktop' {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  // header 3
+  @if $tag == 'h3' {
+    @if $breakpoint == 'phone' {
+      font-size: 14px;
+      line-height: 22px;
+    }
+    @else if $breakpoint == 'desktop' {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  // header 5
+  @if $tag == 'h5' {
+    @if $breakpoint == 'phone' {
+      font-size: 12px;
+      line-height: 20px;
+    }
+    @else if $breakpoint == 'desktop' {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  // paragraph
+  @if $tag ==  'p' {
+    @if $breakpoint == 'phone' {
+      font-size: 13px;
+      line-height: 18px;
+    }
+    @else if $breakpoint == 'desktop' {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  // optional properties
+  @if $weight != null {
+    font-weight: $weight;
+  }
+  @if $style != null {
+    font-style: $style;
+  }
+}
+
+// app
+@mixin app-section-header($margin-bottom: 24px) {
+  @include type ('h1', 'phone', 900);
+  margin-bottom: $margin-bottom;
+
+  @include breakpoint ('from-tablet') {
+    @include type ('h1', 'desktop');
+    margin-bottom: $margin-bottom * 2;
+  }
+}
+
+// buttons
+@mixin button {
+  height: 48px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $white;
+  background: $neutral-20;
+  border: none;
+  border-radius: $border-radius-default;
+
+  &:hover {
+    background: $black;
+    cursor: pointer;
+  }
+}
+
+// Schedule
+@mixin schedule-labels {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $neutral-67;
+
+  @include breakpoint ('from-tablet') {
+    display: none;
+  }
+}

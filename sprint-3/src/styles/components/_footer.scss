@@ -1,0 +1,90 @@
+.footer {
+  @include main-section-padding ('desktop');
+  @include type ('p', 'mobile');
+  color: $white;
+  background: $theme-dark;
+
+  @include breakpoint ('from-tablet') {
+    @include type ('p', 'desktop');
+  }
+
+  &__top,
+  &__middle,
+  &__bottom {
+    @include row;
+    flex-direction: column;
+
+    @include breakpoint ('from-tablet') {
+      flex-direction: row;
+    }
+  }
+
+  &__top {
+    margin-bottom: 32px;
+
+    @include breakpoint ('from-tablet') {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__middle {
+    margin-bottom: 16px;
+  }
+
+  &__header {
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 900;
+    margin-bottom: 32px;
+
+    @include breakpoint ('from-tablet') {
+      @include col (33.3333%);
+      margin-bottom: 0;
+    }
+    @include breakpoint ('desktop') {
+      @include col (25%);
+    }
+  }
+
+  &__mid-subheader {
+    font-weight: 700;
+  }
+
+  &__social-block {
+    display: flex;
+  }
+  &__social-icon {
+    margin-right: 32px;
+  }
+
+  &__logo {
+    display: none;
+
+    @include breakpoint ('from-tablet') {
+      display: block;
+      width: 120px;
+      height: 24px;
+      margin-left: auto;
+    }
+  }
+
+  &__mid-col {
+    @include breakpoint ('tablet') {
+      @include col (33.3333%)
+    }
+    @include breakpoint ('desktop') {
+      @include col (25%);
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+
+    @include breakpoint ('from-tablet') {
+      flex-direction: row;
+    }
+  }
+}
+

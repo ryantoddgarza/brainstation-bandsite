@@ -13,3 +13,7 @@ For this sprint, you will be focused on building a responsive, web-site based on
 For this sprint, you have been provided some updated mock ups for an additional screen that will be part of the site, as well as some new features to be added. Another team is developing some back-end functionality for the new features that you will need to use for the following sprint, so for now you will implement these features in the browser using Javascript until the back-end is ready.
 
 Your goal will be to make the site interactive using JavaScript, and to add a second page to the site according to the mockups and design specs.
+
+## Sprint III
+
+There is now a working API that you can use to connect your front-end code to the back-end and get live data from the server. Your task is to now make the site functional with comment and shows data from the server, where before you had hard-coded mock data.

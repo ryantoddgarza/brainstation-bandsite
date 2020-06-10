@@ -1,0 +1,171 @@
+.shows {
+  @include main-section-padding ('phone');
+
+  @include breakpoint ('from-tablet') {
+    @include main-section-padding ('desktop');
+  }
+
+  &__hero {
+    min-height: 183px;
+    max-height: 670px;
+    background-color: rgba(50,50,50,0.5);
+    background-image: url('/assets/images/Hero.jpg');
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include breakpoint ('desktop') {
+      height: 56vw; // 183px at 320
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 64px;
+    padding-bottom: 48px;
+
+    @include breakpoint ('from-tablet') {
+      padding-top: 96px;
+      padding-bottom: 80px;
+    }
+
+    @include breakpoint ('desktop') {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      height: fit-content;
+    }
+  }
+
+
+  &__header {
+    font-size: 34px;
+    line-height: 48px;
+    margin-bottom: 64px;
+
+    @include breakpoint ('from-tablet') {
+      align-self: flex-start;
+      width: 83.3333%;
+      font-size: 58px;
+      line-height: 68px;
+    }
+
+    @include breakpoint ('desktop') {
+      align-self: flex-end;
+      width: 50%;
+      margin-bottom: 0;
+    }
+
+    &-pre {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 900;
+      margin-bottom: 16px;
+
+      @include breakpoint ('from-tablet') {
+        @include type ('h2', 'desktop');
+      }
+    }
+  }
+
+  &__hero-player {
+    width: 100%;;
+    max-width: 436px;
+    height: 146px;
+
+    @include breakpoint ('tablet') {
+      align-self: flex-start;
+    }
+
+    @include breakpoint ('desktop') {
+      align-self: flex-end;
+    }
+  }
+}
+
+.schedule {
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__responsive-wrapper {
+    width: 100%;
+
+    @include breakpoint ('desktop') {
+      @include col (83.3333%);
+      margin: 0 auto;
+    }
+  }
+
+  &__row {
+    @include row;
+    flex-direction: column;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    @include type ('p', 'phone');
+
+    @include breakpoint ('from-tablet') {
+      flex-direction: row;
+      @include type ('p', 'desktop');
+    }
+
+    & > * {
+      padding-right: 0;
+      line-height: 48px;
+    }
+  }
+
+  &__date {
+    font-size: 16px;
+    font-weight: 900;
+
+    @include breakpoint ('from-tablet') {
+      width: 33.3333%;
+    }
+
+    &::before {
+      content: 'Date';
+      @include schedule-labels;
+    }
+  }
+
+  &__venue {
+    @include breakpoint ('from-tablet') {
+      width: 16.6666%;
+    }
+
+    &::before {
+      content: 'Venue';
+      @include schedule-labels;
+    }
+  }
+
+  &__location {
+    @include breakpoint ('from-tablet') {
+      width: 16.6666%;
+    }
+
+    &::before {
+      content: 'Location';
+      @include schedule-labels;
+    }
+  }
+
+  &__button {
+    @include button;
+    margin: 16px 0;
+
+    @include breakpoint ('from-tablet') {
+      width: 160px;
+      margin: 0 0 0 auto;
+    }
+
+    &::before {
+      content: 'Buy Tickets';
+    }
+  }
+}
