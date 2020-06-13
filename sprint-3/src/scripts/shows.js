@@ -1,38 +1,21 @@
 // shows
 //
 
-let scheduleArray = [
-  {
-    'date': 'Mon Dec 17 2018',
-    'venue': 'Ronald Lane',
-    'city': 'San Fancisco, CA',
-  },
-  {
-    'date': 'Tue Jul 18 2019',
-    'venue': 'Pier 3 East',
-    'city': 'San Fancisco, CA',
-  },
-  {
-    'date': 'Fri Jul 22 2019',
-    'venue': 'View Loungue',
-    'city': 'San Fancisco, CA',
-  },
-  {
-    'date': 'Sat Aug 12 2019',
-    'venue': 'Hyatt Agency',
-    'city': 'San Fancisco, CA',
-  },
-  {
-    'date': 'Fri Sep 05 2019',
-    'venue': 'Moscow Center',
-    'city': 'San Fancisco, CA',
-  },
-  {
-    'date': 'Wed Aug 11 2019',
-    'venue': 'Pres Club',
-    'city': 'San Fancisco, CA',
-  },
-];
+// API
+const apiURL = 'https://project-1-api.herokuapp.com';
+const apikey = 'ba8be611-9724-438e-8b35-ce3ed5727f30';
+
+requestShowdates = () => {
+  axios.get(`${apiURL}/showdates?api_key=${apikey}`)
+    .then((response) => {
+      response.data.forEach((item) => {
+        addEvent(item);
+      });
+    })
+    .catch((error) => console.error(`Could not GET ${apiURL}/showdates`));
+}
+
+requestShowdates();
 
 // function takes array, creattes and gives values to elements
 const addEvent = (arr) => {
@@ -56,16 +39,9 @@ const addEvent = (arr) => {
   row.appendChild(date).classList.add('schedule__date');
   date.innerText = arr.date;
   row.appendChild(venue).classList.add('schedule__venue');
-  venue.innerText = arr.venue;
+  venue.innerText = arr.place;
   row.appendChild(city).classList.add('schedule__location');
-  city.innerText = arr.city;
+  city.innerText = arr.location;
   row.appendChild(button).classList.add('schedule__button');
 }
 
-const iterateReturn = (arr) => {
-  arr.forEach((currentValue, i) => {
-    addEvent(scheduleArray[i]);
-  });
-};
-
-window.onload = iterateReturn(scheduleArray);

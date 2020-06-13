@@ -12,7 +12,7 @@ requestComments = () => {
         addComment(item);
       });
     })
-    .catch((error) => console.error(`Could not GET ${apiURL}`));
+    .catch((error) => console.error(`Could not GET ${apiURL}/comments`));
 }
 
 requestComments();
