@@ -1108,10 +1108,24 @@ img {
     font-size: 14px;
     line-height: 22px;
   }
+  .schedule__row:nth-of-type(n+2) div::before {
+    display: none;
+  }
 }
 .schedule__row > * {
   padding-right: 0;
   line-height: 48px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.schedule__header {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .schedule__header {
+    display: flex;
+  }
 }
 .schedule__date {
   font-size: 16px;
@@ -1131,11 +1145,6 @@ img {
   color: #afafaf;
 }
 @media only screen and (min-width: 768px) {
-  .schedule__date::before {
-    display: none;
-  }
-}
-@media only screen and (min-width: 768px) {
   .schedule__venue {
     width: 16.6666%;
   }
@@ -1149,11 +1158,6 @@ img {
   color: #afafaf;
 }
 @media only screen and (min-width: 768px) {
-  .schedule__venue::before {
-    display: none;
-  }
-}
-@media only screen and (min-width: 768px) {
   .schedule__location {
     width: 16.6666%;
   }
@@ -1165,11 +1169,6 @@ img {
   font-weight: 600;
   text-transform: uppercase;
   color: #afafaf;
-}
-@media only screen and (min-width: 768px) {
-  .schedule__location::before {
-    display: none;
-  }
 }
 .schedule__button {
   height: 48px;

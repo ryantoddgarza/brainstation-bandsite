@@ -158,8 +158,4 @@
   font-weight: 600;
   text-transform: uppercase;
   color: $neutral-67;
-
-  @include breakpoint ('from-tablet') {
-    display: none;
-  }
 }

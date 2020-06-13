@@ -111,11 +111,26 @@
     @include breakpoint ('from-tablet') {
       flex-direction: row;
       @include type ('p', 'desktop');
+
+      &:nth-of-type(n+2) div::before {
+        display: none;
+      }
     }
 
     & > * {
       padding-right: 0;
       line-height: 48px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__header {
+    display: none;
+
+    @include breakpoint ('from-tablet') {
+      display: flex;
     }
   }
 
