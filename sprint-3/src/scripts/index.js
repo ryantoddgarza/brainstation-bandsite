@@ -14,19 +14,19 @@ let commentArray = [
   },
   {
     'author': 'Theodore Duncan',
-    'time': '12/15/2018',
+    'time': '11/15/2018',
     'content': 'How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!',
   },
 ];
 
-// create a new element
-const newEl = (tag) => {
-  return document.createElement(tag);
-}
-
 // scaffold a comment in the DOM
-const makeComment = () => {
-  const commentList = document.querySelector('#commentList');
+const addComment = (arr) => {
+  // create a new element
+  const newEl = (tag) => {
+    return document.createElement(tag);
+  }
+  // write to DOM
+  const commentList = document.getElementById('commentList');
   const comment = newEl('div');
   const commentDivider = newEl('div');
   const commentWrapper = newEl('div');
@@ -50,74 +50,50 @@ const makeComment = () => {
 
   commentBody.appendChild(commentAuthorWrapper).classList.add('comment__author-wrapper');
   commentAuthorWrapper.appendChild(commentAuthor).classList.add('comment__author');
+  commentAuthor.innerText = arr.author;
   commentAuthorWrapper.appendChild(commentTime).classList.add('comment__time');
+  commentTime.innerText = arr.time;
 
   commentBody.appendChild(commentContent).classList.add('comment__content');
+  commentContent.innerText = arr.content;
 }
 
-// fill comment from `commentArray`
-const displayComment = (n) => {
-  const commentAuthor = document.querySelectorAll('.comment__author');
-  const commentTime = document.querySelectorAll('.comment__time');
-  const commentContent = document.querySelectorAll('.comment__content');
-
-  commentAuthor[n].innerText = commentArray[n].author;
-  commentTime[n].innerText = commentArray[n].time;
-  commentContent[n].innerText = commentArray[n].content;
-}
-
-// populate the DOM
-const populateComment = () => {
-  for (let i = 0; i < commentArray.length; i++) {
-    displayComment(i);
-  }
-}
-
-// load existing comments on load
-const loadComments = (i) => {
-  commentArray.forEach(() => {
-    makeComment();
+const iterateReturn = (arr) => {
+  arr.forEach((currentValue, i) => {
+    addComment(commentArray[i]);
   });
+};
 
-  populateComment();
-}
+window.onload = iterateReturn(commentArray);
 
-window.onload = loadComments();
-
-// write a submitted comment
-const writeComment = () => {
-  makeComment();
-  displayComment(0);
-  populateComment();
+// comment constructor
+class Comment {
+  constructor(author, content, time) {
+    this.author = author;
+    this.content = content;
+    this.time = time;
+  };
 }
 
 // comment submission
-const submitButton = document.querySelector('#submitBtn');
+document.getElementById('form').addEventListener('submit', () => {
+  const authorName = document.getElementById('commentAuthorName').value;
+  const content = document.getElementById('commentContent').value;
+  const submitTime = new Date().toLocaleString().split(' ')[0];
 
-submitButton.addEventListener('click', () => {
-  const form = document.querySelector('#form');
+  const newComment = new Comment(authorName, content,  submitTime);
 
-  form.onsubmit = (event) => {
-    event.preventDefault();
-    form.reset();
-  }
-
-  const authorName = document.querySelector('#commentAuthorName').value;
-  const content = document.querySelector('#commentContent').value;
-
-  commentArray.unshift({
-    'author': authorName,
-    'time': new Date().toLocaleString().split(' ')[0],
-    'content': content,
-  })
-
-  writeComment();
+  event.preventDefault();
+  commentArray.unshift(newComment);
+  document.getElementById('commentList').innerHTML = '';
+  iterateReturn(commentArray);
+  form.reset();
 });
 
 // generate footer copyright year
 //
 (copyrightDate = () => {
-  const element = document.querySelector('#copyrightDate');
+  const element = document.getElementById('copyrightDate');
   const year = new Date().getFullYear();
   element.innerText = year + '\xa0';
 })();
