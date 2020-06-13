@@ -1,25 +1,23 @@
 // comments
 // here be dragons!
 
-let commentArray = [
-  {
-    'author': 'Micheal Lyons',
-    'time': '12/18/2018',
-    'content': 'They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed.',
-  },
-  {
-    'author': 'Gary Wong',
-    'time': '12/12/2018',
-    'content': 'Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!',
-  },
-  {
-    'author': 'Theodore Duncan',
-    'time': '11/15/2018',
-    'content': 'How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!',
-  },
-];
+// API
+const apiURL = 'https://project-1-api.herokuapp.com';
+const apikey = 'ba8be611-9724-438e-8b35-ce3ed5727f30';
 
-// scaffold a comment in the DOM
+requestComments = () => {
+  axios.get(`${apiURL}/comments?api_key=${apikey}`)
+    .then((response) => {
+      response.data.forEach((item) => {
+        addComment(item);
+      });
+    })
+    .catch((error) => console.error(`Could not GET ${apiURL}`));
+}
+
+requestComments();
+
+// add a new comment to the DOM
 const addComment = (arr) => {
   // create a new element
   const newEl = (tag) => {
@@ -50,28 +48,26 @@ const addComment = (arr) => {
 
   commentBody.appendChild(commentAuthorWrapper).classList.add('comment__author-wrapper');
   commentAuthorWrapper.appendChild(commentAuthor).classList.add('comment__author');
-  commentAuthor.innerText = arr.author;
+  commentAuthor.innerText = arr.name;
   commentAuthorWrapper.appendChild(commentTime).classList.add('comment__time');
-  commentTime.innerText = arr.time;
+  commentTime.innerText = arr.timestamp;
 
   commentBody.appendChild(commentContent).classList.add('comment__content');
-  commentContent.innerText = arr.content;
+  commentContent.innerText = arr.comment;
 }
 
-const iterateReturn = (arr) => {
-  arr.forEach((currentValue, i) => {
-    addComment(commentArray[i]);
-  });
-};
-
-window.onload = iterateReturn(commentArray);
+// const iterateReturn = (arr) => {
+//   arr.forEach((currentValue, i) => {
+//     addComment(commentArray[i]);
+//   });
+// };
 
 // comment constructor
 class Comment {
-  constructor(author, content, time) {
-    this.author = author;
-    this.content = content;
-    this.time = time;
+  constructor(name, comment, timestamp) {
+    this.name = name;
+    this.comment = comment;
+    this.timestamp = timestamp;
   };
 }
 
@@ -84,9 +80,9 @@ document.getElementById('form').addEventListener('submit', () => {
   const newComment = new Comment(authorName, content,  submitTime);
 
   event.preventDefault();
-  commentArray.unshift(newComment);
-  document.getElementById('commentList').innerHTML = '';
-  iterateReturn(commentArray);
+  // document.getElementById('commentList').innerHTML = '';
+  addComment(newComment);
+  // iterateReturn(commentArray);
   form.reset();
 });
 
