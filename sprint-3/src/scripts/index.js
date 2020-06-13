@@ -5,7 +5,8 @@
 const apiURL = 'https://project-1-api.herokuapp.com';
 const apikey = 'ba8be611-9724-438e-8b35-ce3ed5727f30';
 
-requestComments = () => {
+// GET comments
+const getComments = () => {
   axios.get(`${apiURL}/comments?api_key=${apikey}`)
     .then((response) => {
       response.data.forEach((item) => {
@@ -15,7 +16,7 @@ requestComments = () => {
     .catch((error) => console.error(`Could not GET ${apiURL}/comments`));
 }
 
-requestComments();
+getComments();
 
 // add a new comment to the DOM
 const addComment = (arr) => {
@@ -49,40 +50,42 @@ const addComment = (arr) => {
   commentBody.appendChild(commentAuthorWrapper).classList.add('comment__author-wrapper');
   commentAuthorWrapper.appendChild(commentAuthor).classList.add('comment__author');
   commentAuthor.innerText = arr.name;
+  const formattedDate = new Date(arr.timestamp).toLocaleDateString('en-US');
   commentAuthorWrapper.appendChild(commentTime).classList.add('comment__time');
-  commentTime.innerText = arr.timestamp;
+  commentTime.innerText = formattedDate;
 
   commentBody.appendChild(commentContent).classList.add('comment__content');
   commentContent.innerText = arr.comment;
 }
 
-// const iterateReturn = (arr) => {
-//   arr.forEach((currentValue, i) => {
-//     addComment(commentArray[i]);
-//   });
-// };
-
-// comment constructor
-class Comment {
-  constructor(name, comment, timestamp) {
-    this.name = name;
-    this.comment = comment;
-    this.timestamp = timestamp;
-  };
-}
-
 // comment submission
 document.getElementById('form').addEventListener('submit', () => {
+  event.preventDefault();
+
   const authorName = document.getElementById('commentAuthorName').value;
   const content = document.getElementById('commentContent').value;
-  const submitTime = new Date().toLocaleString().split(' ')[0];
+  const submitTime = new Date().toLocaleString;
 
-  const newComment = new Comment(authorName, content,  submitTime);
+  // POST to API
+  axios.post(`${apiURL}/comments?api_key=${apikey}`, {
+    name: authorName,
+    comment: content
+  })
+    .then((response) => console.log(response))
+    .catch((error) => console.log(`Failed to POST ${apiURL}/comments`))
 
-  event.preventDefault();
-  // document.getElementById('commentList').innerHTML = '';
+  // add submitted comment to DOM without refresh
+  // comment constructor
+  class Comment {
+    constructor(name, comment, timestamp) {
+      this.name = name;
+      this.comment = comment;
+      this.timestamp = timestamp;
+    };
+  }
+  const newComment = new Comment(authorName, content, submitTime);
   addComment(newComment);
-  // iterateReturn(commentArray);
+
   form.reset();
 });
 

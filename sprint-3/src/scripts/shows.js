@@ -27,7 +27,7 @@ scheduleWrapper.innerHTML = showsHeader.render();
 const apiURL = 'https://project-1-api.herokuapp.com';
 const apikey = 'ba8be611-9724-438e-8b35-ce3ed5727f30';
 
-requestShowdates = () => {
+const requestShowdates = () => {
   axios.get(`${apiURL}/showdates?api_key=${apikey}`)
     .then((response) => {
       response.data.forEach((item) => {
