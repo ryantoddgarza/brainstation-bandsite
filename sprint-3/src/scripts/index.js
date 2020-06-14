@@ -51,9 +51,9 @@ const addComment = (arr) => {
   commentBody.appendChild(commentAuthorWrapper).classList.add('comment__author-wrapper');
   commentAuthorWrapper.appendChild(commentAuthor).classList.add('comment__author');
   commentAuthor.innerText = arr.name;
-  const formattedDate = new Date(arr.timestamp).toLocaleDateString('en-US');
+
   commentAuthorWrapper.appendChild(commentTime).classList.add('comment__time');
-  commentTime.innerText = formattedDate;
+  commentTime.innerText = timeSincePost(arr.timestamp);
 
   commentBody.appendChild(commentContent).classList.add('comment__content');
   commentContent.innerText = arr.comment;
@@ -65,7 +65,6 @@ document.getElementById('form').addEventListener('submit', () => {
 
   const authorName = document.getElementById('commentAuthorName').value;
   const content = document.getElementById('commentContent').value;
-  const time = new Date().toLocaleDateString('en-US');
 
   // POST to API
   axios.post(`${apiURL}/comments?api_key=${apikey}`, {
@@ -77,17 +76,62 @@ document.getElementById('form').addEventListener('submit', () => {
   // add submitted comment to DOM without refresh
   // comment constructor
   class Comment {
-    constructor(name, comment, timestamp) {
+    constructor(name, comment) {
       this.name = name;
       this.comment = comment;
-      this.timestamp = timestamp;
+      this.timestamp = 'now';
     };
   }
-  const newComment = new Comment(authorName, content, time);
+  const newComment = new Comment(authorName, content);
   addComment(newComment);
 
   form.reset();
 });
+
+// dynamic timestamp
+let timeSincePost = (test) => {
+  const diff = (Date.now() - test) / 1000;
+
+  switch (true) {
+    // new submission
+    case test === 'now':
+      return 'now';
+      break;
+
+    // less than one minute
+    case diff < 60:
+      return `${Math.floor(diff)}s`;
+      break;
+
+    // hours ago
+    case diff >= 60 && diff < 3600:
+      return `${Math.floor((diff)/60)}m`;
+      break;
+
+    // days ago
+    case diff >= 3600 && diff < 86400:
+      return `${Math.floor(diff/3600)}h`;
+      break;
+
+    // weeks ago
+    case diff >= 86400 && diff < 604800:
+      return `${Math.floor(diff/86400)}w`;
+      break;
+
+    // months ago
+    case diff >= 604800 && diff < 31556952:
+      return `${Math.floor(diff/604800)}m`;
+      break;
+
+    // years ago
+    case diff >= 31556952:
+      return `${Math.floor(diff/31556952)}y`;
+      break;
+
+    default:
+      return '';
+  }
+}
 
 // generate footer copyright year
 //
