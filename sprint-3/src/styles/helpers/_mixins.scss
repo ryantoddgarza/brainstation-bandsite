@@ -2,10 +2,6 @@
 
 @mixin breakpoint ($value, $min-value: null) {
 
-  @if $value == 'phone-small' {
-    @media only screen and (max-width: 320px) { @content; }
-  }
-
   @if $value == 'phone' {
     @media only screen and (max-width: 320px) { @content; }
   }

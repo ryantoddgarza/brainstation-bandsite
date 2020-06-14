@@ -34,8 +34,8 @@ const requestShowdates = () => {
         addEvent(item);
       });
     })
-    .catch((error) => console.error(`Could not GET ${apiURL}/showdates`));
-}
+    .catch((error) => console.error(error));
+};
 
 requestShowdates();
 
@@ -44,7 +44,7 @@ const addEvent = (arr) => {
   // create a new element
   const newEl = (tag) => {
     return document.createElement(tag);
-  }
+  };
 
   // write to DOM
   // const scheduleWrapper = document.getElementById('scheduleWrapper');
@@ -67,5 +67,5 @@ const addEvent = (arr) => {
   row.appendChild(city).classList.add('schedule__location');
   city.innerText = arr.location;
   row.appendChild(button).classList.add('schedule__button');
-}
+};
 

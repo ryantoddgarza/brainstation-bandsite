@@ -69,6 +69,8 @@
   }
 
   &__mid-col {
+    white-space: nowrap;
+
     @include breakpoint ('tablet') {
       @include col (33.3333%)
     }

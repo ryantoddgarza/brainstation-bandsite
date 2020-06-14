@@ -13,8 +13,8 @@ const getComments = () => {
         addComment(item);
       });
     })
-    .catch((error) => console.error(`Could not GET ${apiURL}/comments`));
-}
+    .catch((error) => console.error(error));
+};
 
 getComments();
 
@@ -26,6 +26,7 @@ const addComment = (arr) => {
   }
   // write to DOM
   const commentList = document.getElementById('commentList');
+  const firstChild = commentList.firstChild;
   const comment = newEl('div');
   const commentDivider = newEl('div');
   const commentWrapper = newEl('div');
@@ -37,7 +38,7 @@ const addComment = (arr) => {
   const commentAuthor = newEl('div');
   const commentTime = newEl('div');
 
-  commentList.appendChild(comment).classList.add('comment');
+  const insertComment= commentList.insertBefore(comment, firstChild);
 
   comment.appendChild(commentDivider).classList.add('comment__divider');
   comment.appendChild(commentWrapper).classList.add('comment-wrapper');
@@ -56,7 +57,7 @@ const addComment = (arr) => {
 
   commentBody.appendChild(commentContent).classList.add('comment__content');
   commentContent.innerText = arr.comment;
-}
+};
 
 // comment submission
 document.getElementById('form').addEventListener('submit', () => {
@@ -64,14 +65,13 @@ document.getElementById('form').addEventListener('submit', () => {
 
   const authorName = document.getElementById('commentAuthorName').value;
   const content = document.getElementById('commentContent').value;
-  const submitTime = new Date().toLocaleString;
+  const time = new Date().toLocaleDateString('en-US');
 
   // POST to API
   axios.post(`${apiURL}/comments?api_key=${apikey}`, {
     name: authorName,
     comment: content
   })
-    .then((response) => console.log(response))
     .catch((error) => console.log(`Failed to POST ${apiURL}/comments`))
 
   // add submitted comment to DOM without refresh
@@ -83,7 +83,7 @@ document.getElementById('form').addEventListener('submit', () => {
       this.timestamp = timestamp;
     };
   }
-  const newComment = new Comment(authorName, content, submitTime);
+  const newComment = new Comment(authorName, content, time);
   addComment(newComment);
 
   form.reset();
